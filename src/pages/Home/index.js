@@ -1,12 +1,16 @@
 import arrow from '../../assets/icons/arrow.svg'
 
-import { CardsList } from '../CardsList'
+import { CardsList } from '../../components/CardsList'
 
 import * as S from './styles'
 
-function ContactsList () {
+function Home () {
   return (
     <>
+      <S.InputSearchContainer>
+        <input type="text" name="search" placeholder='Search contact by name...'/>
+      </S.InputSearchContainer>
+
       <S.Container>
         <S.ContactsNumber>3 contacts</S.ContactsNumber>
         <S.NewContactButton href="#">New contact</S.NewContactButton>
@@ -27,4 +31,4 @@ function ContactsList () {
   )
 }
 
-export { ContactsList }
+export { Home }
