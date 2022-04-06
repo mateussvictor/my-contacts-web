@@ -28,3 +28,28 @@ export const Container = styled.header`
     }
   `}
 `
+
+export const ContactsNumber = styled.strong``
+
+export const NewContactButton = styled.a``
+
+export const ListContainer = styled.section`
+  ${({ theme }) => css`
+    margin-top: 3.2rem;
+  `}
+`
+
+export const ListHeader = styled.header``
+
+export const OrderButton = styled.button`
+  ${({ theme }) => css`
+    display: flex;
+    gap: ${theme.spacings.xxsmall};
+    color: ${theme.colors.primary};
+    font-weight: ${theme.font.bold};
+    border: none;
+    background: transparent;
+  `}
+`
+
+export const ArrowIcon = styled.img``
