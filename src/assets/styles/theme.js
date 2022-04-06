@@ -17,14 +17,14 @@ export default {
 
   colors: {
     primary: '#5061FC',
-    primaryLight: '#6674F4',
+    primaryLight: '#FAF8FF',
     primaryDark: '#3346F0',
 
     danger: '#FC5050',
     dangerLight: '#F97171',
     dangerDark: '#F63131',
 
-    gray: '##8F8F8F',
+    gray: '#8F8F8F',
     grayLight: '#E6E6E6',
     grayDark: '#222222',
 
