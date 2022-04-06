@@ -1,19 +1,21 @@
 import { ThemeProvider } from 'styled-components'
 
-import Global from '../../assets/styles/global'
 import theme from '../../assets/styles/theme'
+import Global from '../../assets/styles/global'
 
 import { Header } from '../Header'
+import { ContactsList } from '../ContactsList'
 
-import { Container } from './styles'
+import * as S from './styles'
 
 function App () {
   return (
     <ThemeProvider theme={theme}>
       <Global />
-      <Container>
+      <S.Container>
         <Header />
-      </Container>
+        <ContactsList />
+      </S.Container>
     </ ThemeProvider>
   )
 }
