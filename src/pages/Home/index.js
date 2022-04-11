@@ -1,3 +1,5 @@
+import { Link } from 'react-router-dom'
+
 import arrow from '../../assets/icons/arrow.svg'
 
 import { CardsList } from '../../components/CardsList'
@@ -13,7 +15,7 @@ function Home () {
 
       <S.Container>
         <S.ContactsNumber>3 contacts</S.ContactsNumber>
-        <S.NewContactButton href="#">New contact</S.NewContactButton>
+        <Link to="/new">New contact</Link>
       </S.Container>
 
       <S.ListContainer>

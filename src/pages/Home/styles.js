@@ -50,8 +50,6 @@ export const Container = styled.header`
 
 export const ContactsNumber = styled.strong``
 
-export const NewContactButton = styled.a``
-
 export const ListContainer = styled.section`
   ${({ theme }) => css`
     margin-top: 3.2rem;
