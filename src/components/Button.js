@@ -1,8 +1,8 @@
 import styled from 'styled-components'
 
-export default styled.button`
-  width: 100%;
+export const Button = styled.button`
   height: 5.2rem;
+  padding: 0.8rem ${({ theme }) => theme.spacings.xsmall};
   border: none;
   background: ${({ theme }) => theme.colors.primary};
   border-radius: ${({ theme }) => theme.borderRadius.small};
