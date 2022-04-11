@@ -37,10 +37,9 @@ export const ContactName = styled.h3`
     align-items: center;
 
     small {
-      border: 1px solid ${theme.colors.primary};
       background: ${theme.colors.primaryLight};
       border-radius: ${theme.borderRadius.small};
-      color: ${theme.colors.primary};
+      color: ${theme.colors.white};
       font-size: 1.2rem;
       padding: 0.4rem;
       text-transform: uppercase;
