@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import { FormGroup } from '../FormGroup'
 import { Input } from '../Input'
 import { Select } from '../Select'
-import Button from '../Button'
+import { Button } from '../Button'
 
 import * as S from './styles'
 
