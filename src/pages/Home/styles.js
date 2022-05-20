@@ -22,7 +22,6 @@ export const InputSearchContainer = styled.div`
 export const Container = styled.header`
   ${({ theme }) => css`
     margin-top: ${theme.spacings.medium};
-
     display: flex;
     justify-content: space-between;
     align-items: center;
