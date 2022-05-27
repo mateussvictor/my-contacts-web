@@ -2,9 +2,11 @@ export default {
   font: {
     family:
       "Sora, -apple-system, BlinkMacSystemFont, 'Segoe UI', Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif",
-    light: 300,
-    normal: 400,
-    bold: 600,
+    weight: {
+      light: 300,
+      normal: 400,
+      bold: 600
+    },
     sizes: {
       xsmall: '1.2rem',
       small: '1.4rem',
@@ -14,25 +16,26 @@ export default {
       xxlarge: '2.8rem'
     }
   },
-
   colors: {
-    primary: '#5061FC',
-    primaryLight: '#747BFF',
-    primaryDark: '#3346F0',
-
-    danger: '#FC5050',
-    dangerLight: '#F97171',
-    dangerDark: '#F63131',
-
-    gray: '#8F8F8F',
-    grayLight: '#E6E6E6',
-    grayDark: '#222222',
-
-    white: '#FFF',
+    white: '#FFFFFF',
     black: '#030517',
-    mainBg: '#F6F5FC'
+    bg: '#F6F5FC',
+    primary: {
+      normal: '#5061FC',
+      dark: '#3346F0',
+      light: '#747BFF'
+    },
+    danger: {
+      normal: '#FC5050',
+      dark: '#F63131',
+      light: '#F97171'
+    },
+    gray: {
+      normal: '#8F8F8F',
+      dark: '#222222',
+      light: '#E6E6E6'
+    }
   },
-
   spacings: {
     xxsmall: '0.8rem',
     xsmall: '1.6rem',
@@ -42,7 +45,6 @@ export default {
     xlarge: '4.8rem',
     xxlarge: '5.6rem'
   },
-
   borderRadius: {
     small: '0.4rem',
     medium: '1.6rem',
