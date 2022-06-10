@@ -4,7 +4,7 @@ export const Button = styled.button`
   height: 5.2rem;
   padding: 0.8rem ${({ theme }) => theme.spacings.xsmall};
   border: none;
-  background: ${({ theme }) => theme.colors.primary};
+  background: ${({ theme }) => theme.colors.primary.normal};
   border-radius: ${({ theme }) => theme.borderRadius.small};
   color: ${({ theme }) => theme.colors.white};
   font-weight: bold;
@@ -12,11 +12,11 @@ export const Button = styled.button`
   transition: background 150ms ease-in;
 
   &:hover {
-    background: ${({ theme }) => theme.colors.primaryLight};
+    background: ${({ theme }) => theme.colors.primary.light};
   }
 
   &:active {
-    background: ${({ theme }) => theme.colors.primaryDark};
+    background: ${({ theme }) => theme.colors.primary.dark};
   }
 
   &[disabled] {
@@ -25,14 +25,14 @@ export const Button = styled.button`
   }
 
   ${({ theme, danger }) => danger && css`
-    background: ${theme.colors.danger};
+    background: ${theme.colors.danger.normal};
 
     &:hover {
-    background: ${({ theme }) => theme.colors.dangerLight};
+    background: ${({ theme }) => theme.colors.danger.light};
   }
 
     &:active {
-      background: ${({ theme }) => theme.colors.dangerDark};
+      background: ${({ theme }) => theme.colors.danger.dark};
     }
   `}
 `

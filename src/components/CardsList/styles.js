@@ -37,7 +37,7 @@ export const ContactName = styled.h3`
     align-items: center;
 
     small {
-      background: ${theme.colors.primaryLight};
+      background: ${theme.colors.primary.light};
       border-radius: ${theme.borderRadius.small};
       color: ${theme.colors.white};
       font-size: 1.2rem;
@@ -48,11 +48,11 @@ export const ContactName = styled.h3`
 `
 
 export const ContactEmail = styled.p`
-  color: ${({ theme }) => theme.colors.gray};
+  color: ${({ theme }) => theme.colors.gray.normal};
 `
 
 export const ContactPhone = styled.p`
-  color: ${({ theme }) => theme.colors.gray};
+  color: ${({ theme }) => theme.colors.gray.normal};
 `
 
 export const CardActionsBox = styled.div`

@@ -25,11 +25,9 @@ export default createGlobalStyle`
       line-height: 1.5;
       -webkit-font-smoothing: antialiased;
       -moz-osx-font-smoothing: grayscale;
-
       font-family: ${theme.font.family};
       font-size: ${theme.font.sizes.medium};
-
-      background: ${theme.colors.mainBg};
+      background: ${theme.colors.bg};
     }
   `}
 

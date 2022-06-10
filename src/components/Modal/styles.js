@@ -27,12 +27,12 @@ export const Container = styled.div`
   }
 
   h1 {
+    font-size: ${({ theme }) => theme.font.sizes.xlarge};
     color: ${({ theme, danger }) => (
       danger
-      ? theme.colors.danger
+      ? theme.colors.danger.normal
       : theme.colors.black
     )};
-    font-size: ${({ theme }) => theme.font.sizes.xlarge};
   }
 
   p {
@@ -51,7 +51,7 @@ export const Footer = styled.footer`
   .cancel-btn {
     background: transparent;
     border: none;
-    color: ${({ theme }) => theme.colors.gray};
+    color: ${({ theme }) => theme.colors.gray.normal};
     transition: color 150ms ease-in;
     padding: 0 ${({ theme }) => theme.spacings.xsmall};
 
