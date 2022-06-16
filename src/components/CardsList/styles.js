@@ -41,7 +41,7 @@ export const ContactName = styled.h3`
       border-radius: ${theme.borderRadius.small};
       color: ${theme.colors.white};
       font-size: 1.2rem;
-      padding: 0.4rem;
+      padding: .4rem .8rem;
       text-transform: uppercase;
     }
   `}
