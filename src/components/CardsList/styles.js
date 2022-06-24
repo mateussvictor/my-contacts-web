@@ -10,6 +10,9 @@ export const CardsContainer = styled.section`
 export const Card = styled.ul`
   box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.04);
   list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: ${({ theme }) => theme.spacings.xsmall};
 `
 
 export const CardItem = styled.li`
@@ -35,15 +38,18 @@ export const ContactName = styled.h3`
     gap: ${theme.spacings.xsmall};
     display: flex;
     align-items: center;
+  `}
+`
 
-    small {
-      background: ${theme.colors.primary.light};
-      border-radius: ${theme.borderRadius.small};
-      color: ${theme.colors.white};
-      font-size: 1.2rem;
-      padding: .4rem .8rem;
-      text-transform: uppercase;
-    }
+export const CategoryLabel = styled.small`
+ ${({ theme }) => css`
+    background: ${theme.colors.primary.light};
+    border-radius: ${theme.borderRadius.small};
+    color: ${theme.colors.white};
+    font-size: 1rem;
+    padding: .4rem .8rem;
+    text-transform: uppercase;
+    letter-spacing: .06rem;
   `}
 `
 
