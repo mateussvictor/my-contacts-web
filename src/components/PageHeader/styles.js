@@ -8,6 +8,12 @@ export const Container = styled.header`
     align-items: center;
     gap: 1.2rem;
     max-width: 6.8rem;
+    color: ${({ theme }) => theme.colors.primary.normal};
+    font-weight: 700;
+
+    &:visited {
+      text-decoration: none;
+    }
   }
 
 img {
