@@ -5,8 +5,7 @@ import arrow from '../../assets/icons/arrow.svg'
 
 import { CardsList } from '../../components/CardsList'
 import { Loader } from '../../components/Loader'
-
-import delay from '../../utils/delay'
+import ContactsService from '../../services/ContactsService'
 
 import * as S from './styles'
 
@@ -23,17 +22,13 @@ function Home () {
   }, [contacts, searchTerm])
 
   useEffect(() => {
-    setIsLoading(true)
-
     async function getContacts () {
       try {
-        await delay(500)
+        setIsLoading(true)
 
-        const url = `http://localhost:3001/contacts?orderBy=${orderBy}`
-        const response = await fetch(url)
-        const json = await response.json()
+        const contactsList = await ContactsService.listContacts(orderBy)
 
-        setContacts(json)
+        setContacts(contactsList)
       } catch (error) {
         throw new Error()
       } finally {
