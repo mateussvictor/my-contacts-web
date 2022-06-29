@@ -20,11 +20,13 @@ export const InputSearch = styled.input`
 `
 
 export const Container = styled.header`
-  ${({ theme }) => css`
+  ${({ theme, hasError }) => css`
     margin-top: ${theme.spacings.medium};
     display: flex;
-    justify-content: space-between;
+    justify-content: ${hasError ? 'flex-end' : 'space-between'};
     align-items: center;
+    border-bottom: 2px solid ${theme.colors.gray.light};
+    padding-bottom: 1.6rem;
 
     strong {
       font-size: ${theme.font.sizes.xlarge};
@@ -70,4 +72,21 @@ export const ArrowIcon = styled.img`
   ${({ orderBy }) => orderBy === 'desc' && `
     transform: rotate(180deg)
   `}
+`
+
+export const ErrorContainer = styled.div`
+  margin-top: 1.6rem;
+  display: flex;
+  align-items: center;
+  gap: 2.4rem;
+`
+export const ErrorIcon = styled.img``
+
+export const ErrorDetails = styled.div``
+
+export const ErrorMessage = styled.strong`
+  font-size: 2.2rem;
+  color: ${({ theme }) => theme.colors.danger.normal};
+  display: block;
+  margin-bottom: .8rem;
 `
