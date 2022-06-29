@@ -8,7 +8,7 @@ import { ReactComponent as TrashIcon } from '../../assets/icons/trash.svg'
 
 import * as S from './styles'
 
-function CardsList ({ contacts }) {
+function ContactsList ({ contacts }) {
   const contactsExists = contacts.length > 0
 
   if (contactsExists) {
@@ -48,8 +48,8 @@ function CardsList ({ contacts }) {
   }
 }
 
-export { CardsList }
+export { ContactsList }
 
-CardsList.propTypes = {
+ContactsList.propTypes = {
   contacts: PropTypes.array.isRequired
 }
