@@ -7,9 +7,7 @@ function NewContact () {
     <>
       <PageHeader title="New Contact" />
 
-      <ContactForm
-        buttonLabel="Save Contact"
-      />
+      <ContactForm buttonLabel="Save Contact" />
     </>
   )
 }
