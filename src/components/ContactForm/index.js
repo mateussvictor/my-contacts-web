@@ -5,7 +5,7 @@ import useErrors from '../../hooks/useErrors'
 
 import isValidEmail from '../../utils/isValidEmail'
 import formatPhone from '../../utils/formatPhone'
-import CategoriesService from '../../services/CategoryService'
+import CategoriesService from '../../services/CategoriesService'
 
 import { FormGroup } from '../FormGroup'
 import { Input } from '../Input'
