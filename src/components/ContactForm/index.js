@@ -14,7 +14,7 @@ import { Button } from '../Button'
 
 import * as S from './styles'
 
-function ContactForm ({ buttonLabel }) {
+function ContactForm ({ buttonLabel, onSubmit }) {
   const [name, setName] = useState('')
   const [email, setEmail] = useState('')
   const [phone, setPhone] = useState('')
@@ -67,12 +67,7 @@ function ContactForm ({ buttonLabel }) {
   function handleSubmit (e) {
     e.preventDefault()
 
-    console.log({
-      name,
-      email,
-      phone,
-      categoryId
-    })
+    onSubmit({ name, email, phone, categoryId })
   }
 
   function handlePhoneChange (e) {
@@ -135,5 +130,6 @@ function ContactForm ({ buttonLabel }) {
 export { ContactForm }
 
 ContactForm.propTypes = {
-  buttonLabel: PropTypes.string.isRequired
+  buttonLabel: PropTypes.string.isRequired,
+  onSubmit: PropTypes.func.isRequired
 }
