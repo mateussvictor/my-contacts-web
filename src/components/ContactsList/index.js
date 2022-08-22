@@ -16,7 +16,7 @@ function ContactsList ({ contacts }) {
       <S.CardsContainer>
         <S.Card>
           {contacts.map(contact => (
-            <S.CardItem key={contact.name}>
+            <S.CardItem key={contact.id}>
               <S.CardInfo>
                 <S.ContactName>
                   {contact.name}
