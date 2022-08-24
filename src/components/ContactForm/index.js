@@ -21,6 +21,7 @@ function ContactForm ({ buttonLabel, onSubmit }) {
   const [categoryId, setCategoryId] = useState('')
   const [categories, setCategories] = useState([])
   const [isLoadingCategories, setIsLoadingCategories] = useState(true)
+  const [isSubmitting, setIsSubmitting] = useState(false)
 
   const {
     setError,
@@ -64,15 +65,22 @@ function ContactForm ({ buttonLabel, onSubmit }) {
     }
   }
 
-  function handleSubmit (e) {
+  async function handleSubmit (e) {
     e.preventDefault()
 
-    onSubmit({ name, email, phone, categoryId })
+    setIsSubmitting(true)
+
+    await onSubmit({
+      name, email, phone, categoryId
+    })
+
+    setIsSubmitting(false)
   }
 
   function handlePhoneChange (e) {
     setPhone(formatPhone(e.target.value))
   }
+  console.log(isSubmitting)
 
   return (
     <S.Form onSubmit={handleSubmit} noValidate>
@@ -82,6 +90,7 @@ function ContactForm ({ buttonLabel, onSubmit }) {
           placeholder="Name *"
           value={name}
           onChange={handleNameChange}
+          disabled={isSubmitting}
         />
       </FormGroup>
 
@@ -92,6 +101,7 @@ function ContactForm ({ buttonLabel, onSubmit }) {
           placeholder="E-mail"
           value={email}
           onChange={handleEmailChange}
+          disabled={isSubmitting}
         />
       </FormGroup>
 
@@ -100,6 +110,7 @@ function ContactForm ({ buttonLabel, onSubmit }) {
           value={phone}
           onChange={handlePhoneChange}
           maxLength="15"
+          disabled={isSubmitting}
         />
       </FormGroup>
 
@@ -107,7 +118,7 @@ function ContactForm ({ buttonLabel, onSubmit }) {
         <Select
           value={categoryId}
           onChange={(e) => setCategoryId(e.target.value)}
-          disabled={isLoadingCategories}
+          disabled={isLoadingCategories || isSubmitting}
         >
           <option value="" disabled>Category</option>
 
@@ -118,11 +129,14 @@ function ContactForm ({ buttonLabel, onSubmit }) {
       </FormGroup>
 
       <S.ButtonContainer>
-        <Button type="submit" disabled={!isFormValid}>
+        <Button
+          type="submit"
+          disabled={!isFormValid}
+          isLoading={isSubmitting}
+        >
           {buttonLabel}
         </Button>
       </S.ButtonContainer>
-
     </S.Form>
   )
 }
