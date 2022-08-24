@@ -17,6 +17,7 @@ export const Select = styled.select`
   }
 
   &[disabled] {
-    background: ${({ theme }) => theme.colors.gray.light}
+    background: ${({ theme }) => theme.colors.gray.light};
+    opacity: 1;
   }
 `

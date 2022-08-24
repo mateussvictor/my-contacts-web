@@ -20,4 +20,8 @@ export const Input = styled.input`
     color: ${theme.colors.danger.normal};
     border-color: ${theme.colors.danger.normal} !important;
   `}
+
+  &[disabled] {
+    background: ${({ theme }) => theme.colors.gray.light}
+  }
 `
