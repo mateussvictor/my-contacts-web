@@ -80,64 +80,63 @@ function ContactForm ({ buttonLabel, onSubmit }) {
   function handlePhoneChange (e) {
     setPhone(formatPhone(e.target.value))
   }
-  console.log(isSubmitting)
 
   return (
-    <S.Form onSubmit={handleSubmit} noValidate>
-      <FormGroup error={getErrorMessageByFieldName('name')}>
-        <Input
-          error={getErrorMessageByFieldName('name')}
-          placeholder="Name *"
-          value={name}
-          onChange={handleNameChange}
-          disabled={isSubmitting}
-        />
-      </FormGroup>
+  <S.Form onSubmit={handleSubmit} noValidate>
+    <FormGroup error={getErrorMessageByFieldName('name')}>
+      <Input
+        error={getErrorMessageByFieldName('name')}
+        placeholder="Name *"
+        value={name}
+        onChange={handleNameChange}
+        disabled={isSubmitting}
+      />
+    </FormGroup>
 
-      <FormGroup error={getErrorMessageByFieldName('email')}>
-        <Input
-          type="email"
-          error={getErrorMessageByFieldName('email')}
-          placeholder="E-mail"
-          value={email}
-          onChange={handleEmailChange}
-          disabled={isSubmitting}
-        />
-      </FormGroup>
+    <FormGroup error={getErrorMessageByFieldName('email')}>
+      <Input
+        type="email"
+        error={getErrorMessageByFieldName('email')}
+        placeholder="E-mail"
+        value={email}
+        onChange={handleEmailChange}
+        disabled={isSubmitting}
+      />
+    </FormGroup>
 
-      <FormGroup>
-        <Input placeholder="Phone"
-          value={phone}
-          onChange={handlePhoneChange}
-          maxLength="15"
-          disabled={isSubmitting}
-        />
-      </FormGroup>
+    <FormGroup>
+      <Input placeholder="Phone"
+        value={phone}
+        onChange={handlePhoneChange}
+        maxLength="15"
+        disabled={isSubmitting}
+      />
+    </FormGroup>
 
-      <FormGroup isLoading={isLoadingCategories}>
-        <Select
-          value={categoryId}
-          onChange={(e) => setCategoryId(e.target.value)}
-          disabled={isLoadingCategories || isSubmitting}
-        >
-          <option value="" disabled>Category</option>
+    <FormGroup isLoading={isLoadingCategories}>
+      <Select
+        value={categoryId}
+        onChange={(e) => setCategoryId(e.target.value)}
+        disabled={isLoadingCategories || isSubmitting}
+      >
+        <option value="" disabled>Category</option>
 
-          {categories.map((category) => (
-            <option key={category.id} value={category.id}>{category.name}</option>
-          ))}
-        </Select>
-      </FormGroup>
+        {categories.map((category) => (
+          <option key={category.id} value={category.id}>{category.name}</option>
+        ))}
+      </Select>
+    </FormGroup>
 
-      <S.ButtonContainer>
-        <Button
-          type="submit"
-          disabled={!isFormValid}
-          isLoading={isSubmitting}
-        >
-          {buttonLabel}
-        </Button>
-      </S.ButtonContainer>
-    </S.Form>
+    <S.ButtonContainer>
+      <Button
+        type="submit"
+        disabled={!isFormValid}
+        isLoading={isSubmitting}
+      >
+        {buttonLabel}
+      </Button>
+    </S.ButtonContainer>
+  </S.Form>
   )
 }
 
