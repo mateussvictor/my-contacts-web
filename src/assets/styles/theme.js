@@ -34,6 +34,9 @@ export default {
       normal: '#8F8F8F',
       dark: '#222222',
       light: '#E6E6E6'
+    },
+    success: {
+      normal: '#51CA73'
     }
   },
   spacings: {
