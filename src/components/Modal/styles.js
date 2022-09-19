@@ -3,12 +3,11 @@ import styled from 'styled-components'
 export const Overlay = styled.div`
   background: rgba(0, 0, 0, 0.6);
   backdrop-filter: blur(3px);
-  position: absolute;
+  position: fixed;
   width: 100%;
   height: 100%;
   left: 0;
   top: 0;
-
   display: flex;
   align-items: center;
   justify-content: center;
@@ -25,28 +24,27 @@ export const Container = styled.div`
   button {
     height: 4rem;
   }
+`
 
-  h1 {
-    font-size: ${({ theme }) => theme.font.sizes.xlarge};
-    color: ${({ theme, danger }) => (
-      danger
-      ? theme.colors.danger.normal
-      : theme.colors.black
-    )};
-  }
+export const Title = styled.h4`
+  font-size: ${({ theme }) => theme.font.sizes.large};
+  color: ${({ theme, danger }) => (
+    danger
+    ? theme.colors.danger.normal
+    : theme.colors.black
+  )};
+`
 
-  p {
-    margin-top: ${({ theme }) => theme.spacings.xxsmall};
-  }
+export const Body = styled.p`
+  margin-top: ${({ theme }) => theme.spacings.xsmall};
 `
 
 export const Footer = styled.footer`
   margin-top: ${({ theme }) => theme.spacings.medium};
-
   display: flex;
   align-items: center;
   justify-content: end;
-  gap: 2.4rem;
+  gap: 1.6rem;
 
   .cancel-btn {
     background: transparent;
@@ -57,6 +55,10 @@ export const Footer = styled.footer`
 
     &:hover {
       color: ${({ theme }) => theme.colors.black};
+    }
+
+    &[disabled] {
+      cursor: not-allowed;
     }
   }
 `
