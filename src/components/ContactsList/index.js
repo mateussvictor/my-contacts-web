@@ -8,7 +8,7 @@ import { ReactComponent as TrashIcon } from '../../assets/icons/trash.svg'
 
 import * as S from './styles'
 
-function ContactsList ({ contacts }) {
+function ContactsList ({ contacts, onDelete }) {
   const contactsExists = contacts.length > 0
 
   if (contactsExists) {
@@ -36,7 +36,7 @@ function ContactsList ({ contacts }) {
                   <EditIcon />
                 </Link>
 
-                <button type="button">
+                <button type="button" onClick={() => onDelete(contact)}>
                   <TrashIcon />
                 </button>
               </S.CardActionsBox>
@@ -51,5 +51,6 @@ function ContactsList ({ contacts }) {
 export { ContactsList }
 
 ContactsList.propTypes = {
-  contacts: PropTypes.array.isRequired
+  contacts: PropTypes.array.isRequired,
+  onDelete: PropTypes.func.isRequired
 }
