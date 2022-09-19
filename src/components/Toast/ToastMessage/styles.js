@@ -22,6 +22,7 @@ export const Container = styled.div`
   align-items: center;
   justify-content: center;
   gap: .8rem;
+  cursor: pointer;
 
   ${({ type }) => containerModifiers[type] || containerModifiers.default};
 

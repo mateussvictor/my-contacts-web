@@ -1,3 +1,4 @@
+import { useEffect } from 'react'
 import PropTypes from 'prop-types'
 
 import xCircleIcon from '../../../assets/icons/x-circle.svg'
@@ -5,12 +6,31 @@ import checkCircleIcon from '../../../assets/icons/check-circle.svg'
 
 import * as S from './styles'
 
-function ToastMessage ({ text, type }) {
+function ToastMessage ({ message, onRemoveMessage }) {
+  useEffect(() => {
+    const timeoutId = setTimeout(() => {
+      onRemoveMessage(message.id)
+    }, message.duration || 7000)
+
+    return () => {
+      clearTimeout(timeoutId)
+    }
+  }, [message, onRemoveMessage])
+
+  function handleRemoveToast () {
+    onRemoveMessage(message.id)
+  }
+
   return (
-    <S.Container type={type}>
-      {type === 'danger' && <img src={xCircleIcon} alt="X" />}
-      {type === 'success' && <img src={checkCircleIcon} alt="Check" />}
-      <strong>{text}</strong>
+    <S.Container
+      type={message.type}
+      onClick={handleRemoveToast}
+      tabIndex={0}
+      role="button"
+    >
+      {message.type === 'danger' && <img src={xCircleIcon} alt="X" />}
+      {message.type === 'success' && <img src={checkCircleIcon} alt="Check" />}
+      <strong>{message.text}</strong>
     </S.Container>
   )
 }
@@ -18,10 +38,11 @@ function ToastMessage ({ text, type }) {
 export { ToastMessage }
 
 ToastMessage.propTypes = {
-  text: PropTypes.string.isRequired,
-  type: PropTypes.oneOf(['default', 'success', 'danger'])
-}
-
-ToastMessage.defaultProps = {
-  type: 'default'
+  onRemoveMessage: PropTypes.func.isRequired,
+  message: PropTypes.shape({
+    id: PropTypes.number.isRequired,
+    text: PropTypes.string.isRequired,
+    type: PropTypes.oneOf(['default', 'success', 'danger']),
+    duration: PropTypes.number
+  }).isRequired
 }
