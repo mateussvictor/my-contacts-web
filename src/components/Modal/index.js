@@ -1,32 +1,72 @@
 import PropTypes from 'prop-types'
-import ReactDOM from 'react-dom'
 
 import { Button } from '../Button'
+import { ReactPortal } from '../ReactPortal'
+
 import * as S from './styles'
+function Modal ({
+  danger,
+  title,
+  children,
+  confirmLabel,
+  cancelLabel,
+  onConfirm,
+  onCancel,
+  isVisible,
+  isLoading
+}) {
+  if (!isVisible) return null
 
-function Modal ({ danger }) {
-  return ReactDOM.createPortal(
-    <S.Overlay>
-      <S.Container danger={danger}>
-        <h1>Modal title</h1>
-        <p>Modal description</p>
+  return (
+    <ReactPortal containerId="modal-root">
+      <S.Overlay>
+        <S.Container danger={danger}>
+          <S.Title danger={danger}>{title}</S.Title>
 
-        <S.Footer>
-          <button type="button" className="cancel-btn">Cancel</button>
-          <Button type="button" danger={danger}>Delete</Button>
-        </S.Footer>
-      </S.Container>
-    </S.Overlay>,
-    document.getElementById('modal-root')
+          <S.Body>{children}</S.Body>
+
+          <S.Footer>
+            <button
+              type="button"
+              className="cancel-btn"
+              onClick={onCancel}
+              disabled={isLoading}
+            >
+              {cancelLabel}
+            </button>
+
+            <Button
+              type="button"
+              danger={danger}
+              onClick={onConfirm}
+              isLoading={isLoading}
+            >
+              {confirmLabel}
+            </Button>
+          </S.Footer>
+        </S.Container>
+      </S.Overlay>
+    </ReactPortal>
   )
 }
 
 export { Modal }
 
 Modal.propTypes = {
-  danger: PropTypes.bool
+  danger: PropTypes.bool,
+  isVisible: PropTypes.bool.isRequired,
+  title: PropTypes.string.isRequired,
+  children: PropTypes.node.isRequired,
+  confirmLabel: PropTypes.string,
+  cancelLabel: PropTypes.string,
+  onConfirm: PropTypes.func.isRequired,
+  onCancel: PropTypes.func.isRequired,
+  isLoading: PropTypes.bool
 }
 
 Modal.defaultProps = {
-  danger: false
+  danger: false,
+  isLoading: false,
+  cancelLabel: 'Cancel',
+  confirmLabel: 'Confirm'
 }
