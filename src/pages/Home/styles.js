@@ -20,7 +20,7 @@ export const InputSearch = styled.input`
 `
 
 export const Container = styled.header`
-  ${({ theme, hasError }) => css`
+  ${({ theme }) => css`
     margin-top: ${theme.spacings.medium};
     display: flex;
     justify-content: ${({ justifyContent }) => justifyContent};
