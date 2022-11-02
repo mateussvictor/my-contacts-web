@@ -21,8 +21,8 @@ function ContactsList ({ contacts, onDelete }) {
                 <S.ContactName>
                   {contact.name}
 
-                  {contact.category_name && (
-                    <S.CategoryLabel>{contact.category_name}</S.CategoryLabel>
+                  {contact.category.name && (
+                    <S.CategoryLabel>{contact.category.name}</S.CategoryLabel>
                   )}
                 </S.ContactName>
 
