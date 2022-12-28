@@ -11,7 +11,7 @@ function useIsMounted () {
     }
   }, [])
 
-  const getIsMounted = useCallback(() => isMounted.current)
+  const getIsMounted = useCallback(() => isMounted.current, [])
 
   return getIsMounted
 }
