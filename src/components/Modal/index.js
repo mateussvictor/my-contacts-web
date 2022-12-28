@@ -4,6 +4,7 @@ import { Button } from '../Button'
 import { ReactPortal } from '../ReactPortal'
 
 import * as S from './styles'
+
 function Modal ({
   danger,
   title,

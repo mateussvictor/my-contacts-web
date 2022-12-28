@@ -1,13 +1,13 @@
 import { useState, useEffect, useRef } from 'react'
 import { useParams, useHistory } from 'react-router-dom'
+import PropTypes from 'prop-types'
 
 import toast from '../../utils/toast'
 import { useSafeAsyncAction } from '../../hooks/useSafeAsyncAction'
 
 import ContactsService from '../../services/ContactsService'
-import { Presentation } from '.'
 
-export default function Container () {
+export default function useEditContact () {
   const [isLoading, setIsLoading] = useState(true)
   const [contactName, setContactName] = useState('')
 
@@ -60,12 +60,17 @@ export default function Container () {
     }
   }
 
-  return (
-    <Presentation
-      isLoading={isLoading}
-      contactName={contactName}
-      contactFormRef={contactFormRef}
-      onSubmit={handleSubmit}
-    />
-  )
+  return {
+    isLoading,
+    contactName,
+    contactFormRef,
+    handleSubmit
+  }
+}
+
+useEditContact.propTypes = {
+  isLoading: PropTypes.bool.isRequired,
+  contactName: PropTypes.string.isRequired,
+  contactFormRef: PropTypes.shape().isRequired,
+  onSubmit: PropTypes.func.isRequired
 }
