@@ -6,6 +6,7 @@ import useNewContact from './useNewContact'
 
 export default function NewContact () {
   const { handleSubmit, contactFormRef } = useNewContact()
+
   return (
     <>
       <PageHeader title="New Contact" />
