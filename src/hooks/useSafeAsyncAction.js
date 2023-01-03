@@ -1,7 +1,7 @@
 import { useCallback } from 'react'
 import { useIsMounted } from './useIsMounted'
 
-function useSafeAsyncAction () {
+export default function useSafeAsyncAction () {
   const isMounted = useIsMounted()
 
   const runSafeAsyncAction = useCallback((callback) => {
@@ -12,5 +12,3 @@ function useSafeAsyncAction () {
 
   return runSafeAsyncAction
 }
-
-export { useSafeAsyncAction }

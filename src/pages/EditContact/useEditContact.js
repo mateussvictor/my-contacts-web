@@ -3,7 +3,7 @@ import { useParams, useHistory } from 'react-router-dom'
 import PropTypes from 'prop-types'
 
 import toast from '../../utils/toast'
-import { useSafeAsyncAction } from '../../hooks/useSafeAsyncAction'
+import useSafeAsyncAction from '../../hooks/useSafeAsyncAction'
 
 import ContactsService from '../../services/ContactsService'
 
