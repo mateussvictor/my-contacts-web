@@ -52,7 +52,8 @@ const ContactForm = forwardRef(({ buttonLabel, onSubmit }, ref) => {
       </FormGroup>
 
       <FormGroup>
-        <Input placeholder="Phone"
+        <Input
+          placeholder="Phone"
           value={phone}
           onChange={handlePhoneChange}
           maxLength="15"
