@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types'
 
-import { Button } from '../Button'
+import Button from '../Button'
 import { ReactPortal } from '../ReactPortal'
 
 import * as S from './styles'

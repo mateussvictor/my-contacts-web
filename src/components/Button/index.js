@@ -3,7 +3,7 @@ import { Spinner } from '../Spinner'
 
 import * as S from './styles'
 
-function Button ({
+export default function Button ({
   type,
   disabled,
   isLoading,
@@ -23,8 +23,6 @@ function Button ({
     </S.StyledButton>
   )
 }
-
-export { Button }
 
 Button.propTypes = {
   type: PropTypes.string,
