@@ -90,7 +90,7 @@ const ContactForm = forwardRef(({ buttonLabel, onSubmit }, ref) => {
 
 ContactForm.displayName = 'ContactForm'
 
-export { ContactForm }
+export default ContactForm
 
 ContactForm.propTypes = {
   buttonLabel: PropTypes.string.isRequired,

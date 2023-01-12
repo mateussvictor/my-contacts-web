@@ -5,7 +5,7 @@ import arrow from '../../assets/icons/arrow.svg'
 
 import * as S from './styles.js'
 
-function PageHeader ({ title }) {
+export default function PageHeader ({ title }) {
   return (
     <S.Container>
         <Link to="/">
@@ -16,8 +16,6 @@ function PageHeader ({ title }) {
     </S.Container>
   )
 }
-
-export { PageHeader }
 
 PageHeader.propTypes = {
   title: PropTypes.string.isRequired

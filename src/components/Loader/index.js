@@ -4,7 +4,7 @@ import { Spinner } from '../Spinner'
 import { ReactPortal } from '../ReactPortal'
 import * as S from './styles'
 
-function Loader ({ isLoading }) {
+export default function Loader ({ isLoading }) {
   if (!isLoading) {
     return null
   }
@@ -17,8 +17,6 @@ function Loader ({ isLoading }) {
     </ReactPortal>
   )
 }
-
-export { Loader }
 
 Loader.propTypes = {
   isLoading: PropTypes.bool.isRequired

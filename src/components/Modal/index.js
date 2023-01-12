@@ -5,7 +5,7 @@ import { ReactPortal } from '../ReactPortal'
 
 import * as S from './styles'
 
-function Modal ({
+export default function Modal ({
   danger,
   title,
   children,
@@ -50,8 +50,6 @@ function Modal ({
     </ReactPortal>
   )
 }
-
-export { Modal }
 
 Modal.propTypes = {
   danger: PropTypes.bool,
