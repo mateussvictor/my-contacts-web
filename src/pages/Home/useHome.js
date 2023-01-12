@@ -50,7 +50,7 @@ export default function useHome () {
     loadContacts()
   }
 
-  function handleOpenDeleteContactModal (contact) {
+  function handleDeleteContact (contact) {
     setIsDeleteModalVisible(true)
     setContactBeingDeleted(contact)
   }
@@ -101,6 +101,6 @@ export default function useHome () {
     filteredContacts,
     handleTryAgain,
     handleToggleOrderBy,
-    handleOpenDeleteContactModal
+    handleDeleteContact
   }
 }
