@@ -6,6 +6,7 @@ export const ErrorContainer = styled.div`
   align-items: center;
   gap: 2.4rem;
 `
+
 export const ErrorIcon = styled.img``
 
 export const ErrorDetails = styled.div``
