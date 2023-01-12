@@ -1,8 +1,7 @@
 
-import { Loader } from '../../components/Loader'
-import { Modal } from '../../components/Modal'
+import Loader from '../../components/Loader'
+import Modal from '../../components/Modal'
 import Header from './components/Header'
-
 import useHome from './useHome'
 import InputSearch from './components/InputSearch'
 import ErrorStatus from './components/ErrorStatus'
@@ -31,11 +30,15 @@ export default function Home () {
     handleToggleOrderBy
   } = useHome()
 
+  const hasContacts = contacts.length > 0
+  const isListEmpty = !hasError && (!isLoading && !hasContacts)
+  const isSearchEmpty = !hasError && (hasContacts && filteredContacts.length < 1)
+
   return (
     <>
       <Loader isLoading={isLoading} />
 
-      {contacts.length > 0 && (
+      {hasContacts && (
         <InputSearch
           value={searchTerm}
           onChange={handleChangeSearchTerm}
@@ -50,16 +53,17 @@ export default function Home () {
 
       <S.ListContainer>
         {hasError && <ErrorStatus onTryAgain={handleTryAgain} />}
+        {isListEmpty && <EmptyList />}
+        {isSearchEmpty && <SearchNotFound searchTerm={searchTerm} />}
 
-        {!hasError && (
+        {hasContacts && (
           <>
-            {(contacts.length < 1 && !isLoading) && (
-              <EmptyList />
-            )}
-
-            {(contacts.length > 0 && filteredContacts.length < 1) && (
-              <SearchNotFound searchTerm={searchTerm}/>
-            )}
+            <Contacts
+              filteredContacts={filteredContacts}
+              onToggleOrderBy={handleToggleOrderBy}
+              onDeleteContact={handleDeleteContact}
+              orderBy={orderBy}
+            />
 
             <Modal
               danger
@@ -72,13 +76,6 @@ export default function Home () {
             >
               <span>This action cannot be undone</span>
             </Modal>
-
-            <Contacts
-              filteredContacts={filteredContacts}
-              onToggleOrderBy={handleToggleOrderBy}
-              onDeleteContact={handleDeleteContact}
-              orderBy={orderBy}
-            />
           </>
         )}
       </S.ListContainer>
