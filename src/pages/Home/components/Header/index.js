@@ -21,20 +21,20 @@ export default function Header ({
       hasError={hasError}
       justifyContent={aligment}
     >
-    {(!hasError && contactsAmount > 0) && (
-      <S.ContactsNumber>
-        {filteredContactsAmount}
-        {filteredContactsAmount === 1 ? ' contact' : ' contacts'}
-      </S.ContactsNumber>
-    )}
+      {(!hasError && contactsAmount > 0) && (
+        <S.ContactsNumber>
+          {filteredContactsAmount}
+          {filteredContactsAmount === 1 ? ' contact' : ' contacts'}
+        </S.ContactsNumber>
+      )}
 
-    <Link to="/new">New contact</Link>
-  </S.Container>
+      <Link to="/new">New contact</Link>
+    </S.Container>
   )
 }
 
 Header.propTypes = {
   hasError: PropTypes.bool.isRequired,
-  contactsAmount: PropTypes.array.isRequired,
-  filteredContactsAmount: PropTypes.array.isRequired
+  contactsAmount: PropTypes.number.isRequired,
+  filteredContactsAmount: PropTypes.number.isRequired
 }
