@@ -1,17 +1,16 @@
 
-import arrow from '../../assets/icons/arrow.svg'
-import emptyBox from '../../assets/images/empty-box.svg'
-import magnifier from '../../assets/images/magnifier-question.svg'
-
-import { ContactsList } from '../../components/ContactsList'
 import { Loader } from '../../components/Loader'
 import { Modal } from '../../components/Modal'
 import Header from './components/Header'
 
-import * as S from './styles'
 import useHome from './useHome'
 import InputSearch from './components/InputSearch'
 import ErrorStatus from './components/ErrorStatus'
+import EmptyList from './components/EmptyList'
+import SearchNotFound from './components/SearchNotFound'
+import Contacts from './components/Contacts'
+
+import * as S from './styles'
 
 export default function Home () {
   const {
@@ -21,6 +20,7 @@ export default function Home () {
     contactBeingDeleted,
     handleConfirmDeleteContact,
     handleCloseDeleteModal,
+    handleDeleteContact,
     contacts,
     orderBy,
     searchTerm,
@@ -28,8 +28,7 @@ export default function Home () {
     hasError,
     filteredContacts,
     handleTryAgain,
-    handleToggleOrderBy,
-    handleOpenDeleteContactModal
+    handleToggleOrderBy
   } = useHome()
 
   return (
@@ -55,39 +54,11 @@ export default function Home () {
         {!hasError && (
           <>
             {(contacts.length < 1 && !isLoading) && (
-              <S.EmptyListContainer>
-                <S.EmptyBox
-                  src={emptyBox}
-                  alt="Empty box"
-                />
-                <p>
-                  You do not have any contacts registered yet.
-                  Click on the <strong>&quot;New contact&quot;</strong>
-                  button above to register your first one.
-                </p>
-              </S.EmptyListContainer>
+              <EmptyList />
             )}
 
             {(contacts.length > 0 && filteredContacts.length < 1) && (
-              <S.SearchNotFoundContainer>
-                <img src={magnifier} alt="Magnifier" />
-
-                <span>Result not found for <strong>&quot;{searchTerm}&quot;</strong></span>
-              </S.SearchNotFoundContainer>
-            )}
-
-            {filteredContacts.length > 0 && (
-              <>
-                <S.OrderButton type="button" onClick={handleToggleOrderBy}>
-                  Name
-                  <S.ArrowIcon src={arrow} alt="Arrow" orderBy={orderBy} />
-                </S.OrderButton>
-
-                <ContactsList
-                  contacts={filteredContacts}
-                  onDelete={handleOpenDeleteContactModal}
-                />
-              </>
+              <SearchNotFound searchTerm={searchTerm}/>
             )}
 
             <Modal
@@ -101,6 +72,13 @@ export default function Home () {
             >
               <span>This action cannot be undone</span>
             </Modal>
+
+            <Contacts
+              filteredContacts={filteredContacts}
+              onToggleOrderBy={handleToggleOrderBy}
+              onDeleteContact={handleDeleteContact}
+              orderBy={orderBy}
+            />
           </>
         )}
       </S.ListContainer>
