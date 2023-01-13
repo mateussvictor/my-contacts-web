@@ -74,7 +74,7 @@ export default function Home () {
               onConfirm={handleConfirmDeleteContact}
               onCancel={handleCloseDeleteModal}
             >
-              <span>This action cannot be undone</span>
+              <span>This action cannot be undone!</span>
             </Modal>
           </>
         )}
