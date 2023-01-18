@@ -74,7 +74,7 @@ export default function useHome () {
 
       toast({
         type: 'success',
-        text: 'Successfully deleted contact'
+        text: 'Contact successfully deleted'
       })
     } catch {
       toast({
