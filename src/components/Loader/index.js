@@ -4,6 +4,7 @@ import { Spinner } from '../Spinner'
 import { ReactPortal } from '../ReactPortal'
 
 import useAnimatedUnmount from '../../hooks/useAnimatedUnmount'
+
 import * as S from './styles'
 
 export default function Loader ({ isLoading }) {
