@@ -8,6 +8,7 @@ import * as S from './styles'
 
 function ToastContainer () {
   const [messages, setMessages] = useState([])
+  const [pendingRemovalMessagesIds, setPendingRemovalMessagesIds] = useState([])
 
   useEffect(() => {
     function handleAddToast ({ type, text, duration }) {
@@ -25,10 +26,12 @@ function ToastContainer () {
   }, [])
 
   const handleRemoveMessage = useCallback((id) => {
-    setMessages(prevState => prevState.filter(
-      message => message.id !== id
-    ))
+    setPendingRemovalMessagesIds(
+      (prevState) => [...prevState, id]
+    )
   }, [])
+
+  console.log(pendingRemovalMessagesIds)
 
   return (
     <S.Container>
@@ -37,6 +40,7 @@ function ToastContainer () {
           key={message.id}
           message={message}
           onRemoveMessage={handleRemoveMessage}
+          isLeaving={pendingRemovalMessagesIds.includes(message.id)}
         />
       ))}
     </S.Container>
