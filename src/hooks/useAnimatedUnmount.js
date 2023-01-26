@@ -15,7 +15,7 @@ export default function useAnimatedUnmount (isVisible) {
 
     const elementRef = animatedElementRef.current
 
-    if (!isVisible && animatedElementRef.current) {
+    if (!isVisible && elementRef) {
       elementRef.addEventListener('animationend', handleAnimationEnd)
     }
 
