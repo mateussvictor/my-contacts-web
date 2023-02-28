@@ -13,28 +13,44 @@ export default function useAnimatedList (initialValue = []) {
     )
   }, [])
 
-  const handleAnimationEnd = useCallback((id) => {
-    setItems((prevState) => prevState.filter((message) => message.id !== id))
+  const handleAnimationEnd = useCallback((itemId) => {
+    const removeListener = animationEndListeners.current.get(itemId)
+    removeListener()
 
+    animationEndListeners.current.delete(itemId)
+    animatedRefs.current.delete(itemId)
+
+    setItems((prevState) => prevState.filter((item) => item.id !== itemId))
     setPendingRemovalItemsIds(
-      (prevState) => prevState.filter((messageId) => messageId !== id)
+      (prevState) => prevState.filter((id) => id !== itemId)
     )
   }, [])
 
   useEffect(() => {
     pendingRemovalItemsIds.forEach((itemId) => {
       const animatedRef = animatedRefs.current.get(itemId)
+      const animatedElement = animatedRef?.current
       const alreadyHasListener = animationEndListeners.current.has(itemId)
 
-      if (animatedRef?.current && !alreadyHasListener) {
-        alreadyHasListener.current.set(itemId, true)
+      if (animatedElement && !alreadyHasListener) {
+        const onAnimationEnd = () => handleAnimationEnd(itemId)
+        const removeListener = () => {
+          animatedElement.removeEventListener('animationend', onAnimationEnd)
+        }
 
-        animatedRef.current.addEventListener('animationend', () => {
-          handleAnimationEnd(itemId)
-        })
+        alreadyHasListener.current.set(itemId, onAnimationEnd)
+        animationEndListeners.current.set(removeListener)
       }
     })
   }, [pendingRemovalItemsIds, handleAnimationEnd])
+
+  useEffect(() => {
+    const removeListeners = animationEndListeners.current
+
+    return () => {
+      removeListeners.forEach(removeListener => removeListener())
+    }
+  }, [])
 
   const getAnimatedRef = useCallback((itemId) => {
     let animatedRef = animatedRefs.current.get(itemId)
