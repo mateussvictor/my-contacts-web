@@ -1,4 +1,3 @@
-<h1 align='center'>An application to manage your contacts! (React case study)<h1>
 
 <p align="center">
   <img src=".github/mycontacts.png" alt="MyContacts App">
