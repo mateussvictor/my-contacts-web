@@ -7,15 +7,15 @@ import { ReactPortal } from '../ReactPortal'
 import * as S from './styles'
 
 export default function Modal ({
-  danger,
+  danger = false,
+  confirmLabel = 'Confirm',
+  cancelLabel = 'Cancel',
+  isLoading = false,
   title,
   children,
-  confirmLabel,
-  cancelLabel,
   onConfirm,
   onCancel,
   isVisible,
-  isLoading
 }) {
   const { shouldRender, animatedElementRef } = useAnimatedUnmount(isVisible)
 
@@ -64,11 +64,4 @@ Modal.propTypes = {
   onConfirm: PropTypes.func.isRequired,
   onCancel: PropTypes.func.isRequired,
   isLoading: PropTypes.bool
-}
-
-Modal.defaultProps = {
-  danger: false,
-  isLoading: false,
-  cancelLabel: 'Cancel',
-  confirmLabel: 'Confirm'
 }
