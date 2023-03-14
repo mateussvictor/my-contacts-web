@@ -1,9 +1,9 @@
 import { ThemeProvider } from 'styled-components'
-import { BrowserRouter as Router } from 'react-router-dom'
+import { BrowserRouter } from 'react-router-dom'
 
 import { ToastContainer } from '../Toast/ToastContainer'
 import { Header } from '../Header'
-import Routes from '../../Routes'
+import Router from '../../Router'
 
 import theme from '../../assets/styles/theme'
 import Global from '../../assets/styles/global'
@@ -12,17 +12,17 @@ import * as S from './styles'
 
 function App () {
   return (
-    <Router>
+    <BrowserRouter>
       <ThemeProvider theme={theme}>
         <Global />
         <ToastContainer />
 
         <S.Container>
           <Header />
-          <Routes />
+          <Router />
         </S.Container>
       </ ThemeProvider>
-    </Router>
+    </BrowserRouter>
   )
 }
 
