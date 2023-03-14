@@ -16,7 +16,7 @@
 ## :zap: Features
 
 - CRUD operations
-- Filter contacts
+- Filter and sort contacts
 - Add contact number
 - Associate contacts to some category
 <br><br>
