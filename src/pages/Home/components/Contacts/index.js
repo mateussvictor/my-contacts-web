@@ -1,3 +1,5 @@
+import { memo } from 'react'
+
 import PropTypes from 'prop-types'
 
 import ContactsList from '../../../../components/ContactsList'
@@ -6,7 +8,7 @@ import arrow from '../../../../assets/icons/arrow.svg'
 
 import * as S from './styles'
 
-export default function Contacts ({
+function Contacts ({
   filteredContacts,
   onToggleOrderBy,
   onDeleteContact,
@@ -30,6 +32,8 @@ export default function Contacts ({
     </>
   )
 }
+
+export default memo(Contacts)
 
 Contacts.propTypes = {
   filteredContacts: PropTypes.arrayOf(PropTypes.shape({
