@@ -1,6 +1,6 @@
 import { useRef, useEffect, useState } from 'react'
 
-export default function useAnimatedUnmount (isVisible) {
+export default function useAnimatedUnmount(isVisible) {
   const [shouldRender, setShouldRender] = useState(isVisible)
   const animatedElementRef = useRef(null)
 
@@ -9,7 +9,7 @@ export default function useAnimatedUnmount (isVisible) {
       setShouldRender(true)
     }
 
-    function handleAnimationEnd () {
+    function handleAnimationEnd() {
       setShouldRender(false)
     }
 

@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState, useCallback, createRef } from 'react'
 
-export default function useAnimatedList (initialValue = []) {
+export default function useAnimatedList(initialValue = []) {
   const [items, setItems] = useState(initialValue)
   const [pendingRemovalItemsIds, setPendingRemovalItemsIds] = useState([])
 
@@ -8,9 +8,7 @@ export default function useAnimatedList (initialValue = []) {
   const animationEndListeners = useRef(new Map())
 
   const handleRemoveMessage = useCallback((id) => {
-    setPendingRemovalItemsIds(
-      (prevState) => [...prevState, id]
-    )
+    setPendingRemovalItemsIds((prevState) => [...prevState, id])
   }, [])
 
   const handleAnimationEnd = useCallback((itemId) => {
@@ -21,8 +19,8 @@ export default function useAnimatedList (initialValue = []) {
     animatedRefs.current.delete(itemId)
 
     setItems((prevState) => prevState.filter((item) => item.id !== itemId))
-    setPendingRemovalItemsIds(
-      (prevState) => prevState.filter((id) => id !== itemId)
+    setPendingRemovalItemsIds((prevState) =>
+      prevState.filter((id) => id !== itemId)
     )
   }, [])
 
@@ -48,7 +46,7 @@ export default function useAnimatedList (initialValue = []) {
     const removeListeners = animationEndListeners.current
 
     return () => {
-      removeListeners.forEach(removeListener => removeListener())
+      removeListeners.forEach((removeListener) => removeListener())
     }
   }, [])
 
@@ -63,14 +61,16 @@ export default function useAnimatedList (initialValue = []) {
     return animatedRef
   }, [])
 
-  const renderList = useCallback((renderItem) => (
-    items.map((item) => {
-      const isLeaving = pendingRemovalItemsIds.includes(item.id)
-      const animatedRef = getAnimatedRef(item.id)
+  const renderList = useCallback(
+    (renderItem) =>
+      items.map((item) => {
+        const isLeaving = pendingRemovalItemsIds.includes(item.id)
+        const animatedRef = getAnimatedRef(item.id)
 
-      return renderItem(item, { isLeaving, animatedRef })
-    })
-  ), [items, pendingRemovalItemsIds])
+        return renderItem(item, { isLeaving, animatedRef })
+      }),
+    [items, pendingRemovalItemsIds]
+  )
 
   return {
     items,

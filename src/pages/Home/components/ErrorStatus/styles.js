@@ -15,5 +15,5 @@ export const ErrorMessage = styled.strong`
   font-size: 2.2rem;
   color: ${({ theme }) => theme.colors.danger.normal};
   display: block;
-  margin-bottom: .8rem;
+  margin-bottom: 0.8rem;
 `

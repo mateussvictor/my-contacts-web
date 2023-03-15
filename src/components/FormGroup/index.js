@@ -3,7 +3,7 @@ import { Spinner } from '../Spinner'
 
 import * as S from './styles'
 
-function FormGroup ({ children, error = null, isLoading }) {
+function FormGroup({ children, error = null, isLoading }) {
   return (
     <S.Container>
       <div className="form-item">

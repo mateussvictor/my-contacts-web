@@ -6,7 +6,7 @@ import checkCircleIcon from '../../../assets/icons/check-circle.svg'
 
 import * as S from './styles'
 
-function ToastMessage ({ message, onRemoveMessage, isLeaving, animatedRef }) {
+function ToastMessage({ message, onRemoveMessage, isLeaving, animatedRef }) {
   useEffect(() => {
     const timeoutId = setTimeout(() => {
       onRemoveMessage(message.id)
@@ -17,7 +17,7 @@ function ToastMessage ({ message, onRemoveMessage, isLeaving, animatedRef }) {
     }
   }, [message, onRemoveMessage])
 
-  function handleRemoveToast () {
+  function handleRemoveToast() {
     onRemoveMessage(message.id)
   }
 

@@ -33,7 +33,7 @@ export const CardInfo = styled.div`
 `
 
 export const ContactName = styled.h3`
- ${({ theme }) => css`
+  ${({ theme }) => css`
     margin-bottom: ${theme.spacings.xxsmall};
     gap: ${theme.spacings.xsmall};
     display: flex;
@@ -42,14 +42,14 @@ export const ContactName = styled.h3`
 `
 
 export const CategoryLabel = styled.small`
- ${({ theme }) => css`
+  ${({ theme }) => css`
     background: ${theme.colors.primary.light};
     border-radius: ${theme.borderRadius.small};
     color: ${theme.colors.white};
     font-size: 1rem;
-    padding: .4rem .8rem;
+    padding: 0.4rem 0.8rem;
     text-transform: uppercase;
-    letter-spacing: .06rem;
+    letter-spacing: 0.06rem;
   `}
 `
 

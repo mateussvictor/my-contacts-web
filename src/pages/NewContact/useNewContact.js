@@ -4,10 +4,10 @@ import ContactsService from '../../services/ContactsService'
 
 import toast from '../../utils/toast'
 
-export default function useNewContact () {
+export default function useNewContact() {
   const contactFormRef = useRef(null)
 
-  async function handleSubmit (contact) {
+  async function handleSubmit(contact) {
     try {
       await ContactsService.createContact(contact)
 

@@ -16,11 +16,11 @@ export const Container = styled.header`
     }
   }
 
-img {
-  transform: rotate(-90deg);
-}
+  img {
+    transform: rotate(-90deg);
+  }
 
   h1 {
-    font-size: ${({ theme }) => theme.font.sizes.xlarge}
+    font-size: ${({ theme }) => theme.font.sizes.xlarge};
   }
 `

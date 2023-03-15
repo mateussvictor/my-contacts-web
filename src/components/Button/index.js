@@ -3,7 +3,7 @@ import { Spinner } from '../Spinner'
 
 import * as S from './styles'
 
-export default function Button ({
+export default function Button({
   type = 'button',
   disabled = false,
   isLoading = false,

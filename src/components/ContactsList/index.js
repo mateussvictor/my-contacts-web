@@ -8,14 +8,14 @@ import { ReactComponent as TrashIcon } from '../../assets/icons/trash.svg'
 
 import * as S from './styles'
 
-export default function ContactsList ({ contacts, onDelete }) {
+export default function ContactsList({ contacts, onDelete }) {
   const contactsExists = contacts.length > 0
 
   if (contactsExists) {
     return (
       <S.CardsContainer>
         <S.Card>
-          {contacts.map(contact => (
+          {contacts.map((contact) => (
             <S.CardItem key={contact.id}>
               <S.CardInfo>
                 <S.ContactName>

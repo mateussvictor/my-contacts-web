@@ -8,7 +8,7 @@ import arrow from '../../../../assets/icons/arrow.svg'
 
 import * as S from './styles'
 
-function Contacts ({
+function Contacts({
   filteredContacts,
   onToggleOrderBy,
   onDeleteContact,
@@ -36,15 +36,17 @@ function Contacts ({
 export default memo(Contacts)
 
 Contacts.propTypes = {
-  filteredContacts: PropTypes.arrayOf(PropTypes.shape({
-    id: PropTypes.string.isRequired,
-    name: PropTypes.string.isRequired,
-    email: PropTypes.string,
-    phone: PropTypes.string,
-    category: PropTypes.shape({
-      name: PropTypes.string
+  filteredContacts: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.string.isRequired,
+      name: PropTypes.string.isRequired,
+      email: PropTypes.string,
+      phone: PropTypes.string,
+      category: PropTypes.shape({
+        name: PropTypes.string
+      })
     })
-  })).isRequired,
+  ).isRequired,
   onToggleOrderBy: PropTypes.func.isRequired,
   onDeleteContact: PropTypes.func.isRequired,
   orderBy: PropTypes.string.isRequired

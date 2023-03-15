@@ -14,7 +14,9 @@ export const OrderButton = styled.button`
 export const ArrowIcon = styled.img`
   transition: transform 150ms ease-in;
 
-  ${({ orderBy }) => orderBy === 'desc' && `
+  ${({ orderBy }) =>
+    orderBy === 'desc' &&
+    `
     transform: rotate(180deg)
   `}
 `

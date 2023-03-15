@@ -13,7 +13,7 @@ export const Select = styled.select`
   transition: border-color 100ms ease-in;
 
   &:focus {
-    border: 2px solid ${({ theme }) => theme.colors.primary.normal}
+    border: 2px solid ${({ theme }) => theme.colors.primary.normal};
   }
 
   &[disabled] {

@@ -7,7 +7,7 @@ import useSafeAsyncAction from '../../hooks/useSafeAsyncAction'
 
 import ContactsService from '../../services/ContactsService'
 
-export default function useEditContact () {
+export default function useEditContact() {
   const [isLoading, setIsLoading] = useState(true)
   const [contactName, setContactName] = useState('')
 
@@ -20,17 +20,20 @@ export default function useEditContact () {
   useEffect(() => {
     const controller = new AbortController()
 
-    async function loadContact () {
+    async function loadContact() {
       try {
-        const contact = await ContactsService.getContactById(id, controller.signal)
+        const contact = await ContactsService.getContactById(
+          id,
+          controller.signal
+        )
 
         safeAsyncAction(() => {
           contactFormRef.current.setFieldsValues(contact)
           setIsLoading(false)
           setContactName(contact.name)
         })
-      } catch(error) {
-        if(error instanceof DOMException && error.name === 'AbortError') {
+      } catch (error) {
+        if (error instanceof DOMException && error.name === 'AbortError') {
           return
         }
 
@@ -52,7 +55,7 @@ export default function useEditContact () {
     }
   }, [id, safeAsyncAction, navigate])
 
-  async function handleSubmit (contact) {
+  async function handleSubmit(contact) {
     try {
       const updatedContact = await ContactsService.updateContact(id, contact)
 

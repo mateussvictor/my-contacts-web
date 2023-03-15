@@ -1,4 +1,3 @@
-
 import Loader from '../../components/Loader'
 import Modal from '../../components/Modal'
 import Header from './components/Header'
@@ -11,7 +10,7 @@ import Contacts from './components/Contacts'
 
 import * as S from './styles'
 
-export default function Home () {
+export default function Home() {
   const {
     isLoading,
     isLoadingDelete,
@@ -31,18 +30,15 @@ export default function Home () {
   } = useHome()
 
   const hasContacts = contacts.length > 0
-  const isListEmpty = !hasError && (!isLoading && !hasContacts)
-  const isSearchEmpty = !hasError && (hasContacts && filteredContacts.length < 1)
+  const isListEmpty = !hasError && !isLoading && !hasContacts
+  const isSearchEmpty = !hasError && hasContacts && filteredContacts.length < 1
 
   return (
     <>
       <Loader isLoading={isLoading} />
 
       {hasContacts && (
-        <InputSearch
-          value={searchTerm}
-          onChange={handleChangeSearchTerm}
-        />
+        <InputSearch value={searchTerm} onChange={handleChangeSearchTerm} />
       )}
 
       <Header

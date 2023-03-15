@@ -8,7 +8,7 @@ export const Container = styled.div`
   small {
     color: ${({ theme }) => theme.colors.danger.normal};
     font-size: 1.2rem;
-    margin-top: .8rem;
+    margin-top: 0.8rem;
     display: block;
   }
 

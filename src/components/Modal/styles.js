@@ -33,7 +33,11 @@ export const Overlay = styled.div`
   justify-content: center;
   animation: ${fadeIn} 0.3s forwards;
 
-  ${({ isLeaving }) => isLeaving && css`animation: ${fadeOut} 0.3s forwards;`}
+  ${({ isLeaving }) =>
+    isLeaving &&
+    css`
+      animation: ${fadeOut} 0.3s forwards;
+    `}
 `
 
 export const Container = styled.div`
@@ -49,16 +53,17 @@ export const Container = styled.div`
     height: 4rem;
   }
 
-  ${({ isLeaving }) => isLeaving && css`animation: ${scaleOut} 0.3s forwards;`}
+  ${({ isLeaving }) =>
+    isLeaving &&
+    css`
+      animation: ${scaleOut} 0.3s forwards;
+    `}
 `
 
 export const Title = styled.h4`
   font-size: ${({ theme }) => theme.font.sizes.large};
-  color: ${({ theme, danger }) => (
-    danger
-    ? theme.colors.danger.normal
-    : theme.colors.black
-  )};
+  color: ${({ theme, danger }) =>
+    danger ? theme.colors.danger.normal : theme.colors.black};
 `
 
 export const Body = styled.p`

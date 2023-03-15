@@ -6,7 +6,7 @@ import { ReactPortal } from '../ReactPortal'
 
 import * as S from './styles'
 
-export default function Modal ({
+export default function Modal({
   danger = false,
   confirmLabel = 'Confirm',
   cancelLabel = 'Cancel',
@@ -15,7 +15,7 @@ export default function Modal ({
   children,
   onConfirm,
   onCancel,
-  isVisible,
+  isVisible
 }) {
   const { shouldRender, animatedElementRef } = useAnimatedUnmount(isVisible)
 

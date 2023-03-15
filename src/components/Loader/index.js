@@ -7,7 +7,7 @@ import useAnimatedUnmount from '../../hooks/useAnimatedUnmount'
 
 import * as S from './styles'
 
-export default function Loader ({ isLoading }) {
+export default function Loader({ isLoading }) {
   const { shouldRender, animatedElementRef } = useAnimatedUnmount(isLoading)
 
   if (!shouldRender) return null

@@ -10,7 +10,7 @@ import Global from '../../assets/styles/global'
 
 import * as S from './styles'
 
-function App () {
+function App() {
   return (
     <BrowserRouter>
       <ThemeProvider theme={theme}>
@@ -21,7 +21,7 @@ function App () {
           <Header />
           <Router />
         </S.Container>
-      </ ThemeProvider>
+      </ThemeProvider>
     </BrowserRouter>
   )
 }

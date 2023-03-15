@@ -23,19 +23,21 @@ export const StyledButton = styled.button`
   }
 
   &[disabled] {
-    background-color: #CCC !important;
+    background-color: #ccc !important;
     cursor: default !important;
   }
 
-  ${({ theme, danger }) => danger && css`
-    background: ${theme.colors.danger.normal};
+  ${({ theme, danger }) =>
+    danger &&
+    css`
+      background: ${theme.colors.danger.normal};
 
-    &:hover {
-    background: ${({ theme }) => theme.colors.danger.light};
-  }
+      &:hover {
+        background: ${({ theme }) => theme.colors.danger.light};
+      }
 
-    &:active {
-      background: ${({ theme }) => theme.colors.danger.dark};
-    }
-  `}
+      &:active {
+        background: ${({ theme }) => theme.colors.danger.dark};
+      }
+    `}
 `

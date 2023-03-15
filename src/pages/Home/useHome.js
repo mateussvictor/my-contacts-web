@@ -9,7 +9,7 @@ import {
 import ContactsService from '../../services/ContactsService'
 import toast from '../../utils/toast'
 
-export default function useHome () {
+export default function useHome() {
   const [contacts, setContacts] = useState([])
   const [orderBy, setOrderBy] = useState('asc')
   const [isLoading, setIsLoading] = useState(true)
@@ -22,30 +22,33 @@ export default function useHome () {
   const deferredSearchTerm = useDeferredValue(searchTerm)
 
   const filteredContacts = useMemo(() => {
-    return contacts.filter(contact => (
+    return contacts.filter((contact) =>
       contact.name.toLowerCase().includes(deferredSearchTerm.toLowerCase())
-    ))
+    )
   }, [contacts, deferredSearchTerm])
 
-  const loadContacts = useCallback(async (signal) => {
-    try {
-      setIsLoading(true)
+  const loadContacts = useCallback(
+    async (signal) => {
+      try {
+        setIsLoading(true)
 
-      const contactsList = await ContactsService.listContacts(orderBy, signal)
+        const contactsList = await ContactsService.listContacts(orderBy, signal)
 
-      setHasError(false)
-      setContacts(contactsList)
-    } catch(error) {
-      if(error instanceof DOMException && error.name === 'AbortError') {
-        return
+        setHasError(false)
+        setContacts(contactsList)
+      } catch (error) {
+        if (error instanceof DOMException && error.name === 'AbortError') {
+          return
+        }
+
+        setHasError(true)
+        setContacts([])
+      } finally {
+        setIsLoading(false)
       }
-
-      setHasError(true)
-      setContacts([])
-    } finally {
-      setIsLoading(false)
-    }
-  }, [orderBy])
+    },
+    [orderBy]
+  )
 
   useEffect(() => {
     const controller = new AbortController()
@@ -58,14 +61,14 @@ export default function useHome () {
   }, [loadContacts])
 
   const handleToggleOrderBy = useCallback(() => {
-    setOrderBy((prevState) => prevState === 'asc' ? 'desc' : 'asc')
+    setOrderBy((prevState) => (prevState === 'asc' ? 'desc' : 'asc'))
   }, [])
 
-  function handleChangeSearchTerm (e) {
+  function handleChangeSearchTerm(e) {
     setSearchTerm(e.target.value)
   }
 
-  function handleTryAgain () {
+  function handleTryAgain() {
     loadContacts()
   }
 
@@ -74,19 +77,19 @@ export default function useHome () {
     setContactBeingDeleted(contact)
   }, [])
 
-  function handleCloseDeleteModal () {
+  function handleCloseDeleteModal() {
     setIsDeleteModalVisible(false)
   }
 
-  async function handleConfirmDeleteContact () {
+  async function handleConfirmDeleteContact() {
     try {
       setIsLoadingDelete(true)
 
       await ContactsService.deleteContact(contactBeingDeleted.id)
 
-      setContacts(prevState => prevState.filter(contact => (
-        contact.id !== contactBeingDeleted.id
-      )))
+      setContacts((prevState) =>
+        prevState.filter((contact) => contact.id !== contactBeingDeleted.id)
+      )
 
       handleCloseDeleteModal()
 

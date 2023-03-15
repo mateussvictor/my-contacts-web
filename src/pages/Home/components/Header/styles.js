@@ -11,7 +11,7 @@ export const Container = styled.header`
 
     strong {
       font-size: ${theme.font.sizes.xlarge};
-      color: ${theme.colors.gray.dark}
+      color: ${theme.colors.gray.dark};
     }
 
     a {

@@ -8,16 +8,12 @@ import useAnimatedList from '../../../hooks/useAnimatedList'
 
 import * as S from './styles'
 
-function ToastContainer () {
-  const {
-    setItems,
-    renderList,
-    handleRemoveMessage
-  } = useAnimatedList()
+function ToastContainer() {
+  const { setItems, renderList, handleRemoveMessage } = useAnimatedList()
 
   useEffect(() => {
-    function handleAddToast ({ type, text, duration }) {
-      setItems(prevState => [
+    function handleAddToast({ type, text, duration }) {
+      setItems((prevState) => [
         ...prevState,
         { id: Math.random(), type, text, duration }
       ])

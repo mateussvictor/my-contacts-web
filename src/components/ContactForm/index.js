@@ -67,20 +67,20 @@ const ContactForm = forwardRef(({ buttonLabel, onSubmit }, ref) => {
           onChange={(e) => setCategoryId(e.target.value)}
           disabled={isLoadingCategories || isSubmitting}
         >
-          <option value="" disabled>Category</option>
+          <option value="" disabled>
+            Category
+          </option>
 
           {categories.map((category) => (
-            <option key={category.id} value={category.id}>{category.name}</option>
+            <option key={category.id} value={category.id}>
+              {category.name}
+            </option>
           ))}
         </Select>
       </FormGroup>
 
       <S.ButtonContainer>
-        <Button
-          type="submit"
-          disabled={!isFormValid}
-          isLoading={isSubmitting}
-        >
+        <Button type="submit" disabled={!isFormValid} isLoading={isSubmitting}>
           {buttonLabel}
         </Button>
       </S.ButtonContainer>

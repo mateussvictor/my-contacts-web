@@ -4,12 +4,14 @@ import magnifier from '../../../../assets/images/magnifier-question.svg'
 
 import * as S from './styles'
 
-export default function SearchNotFound ({ searchTerm }) {
+export default function SearchNotFound({ searchTerm }) {
   return (
     <S.Container>
       <img src={magnifier} alt="Magnifier" />
 
-      <span>Result not found for <strong>&quot;{searchTerm}&quot;</strong></span>
+      <span>
+        Result not found for <strong>&quot;{searchTerm}&quot;</strong>
+      </span>
     </S.Container>
   )
 }

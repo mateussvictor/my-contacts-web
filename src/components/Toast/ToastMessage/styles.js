@@ -45,11 +45,15 @@ export const Container = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: .8rem;
+  gap: 0.8rem;
   cursor: pointer;
   animation: ${messageIn} 0.3s;
 
-  ${({ isLeaving }) => isLeaving && css`animation: ${messageOut} 0.2s forwards;`}
+  ${({ isLeaving }) =>
+    isLeaving &&
+    css`
+      animation: ${messageOut} 0.2s forwards;
+    `}
 
   ${({ type }) => containerModifiers[type] || containerModifiers.default};
 

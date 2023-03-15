@@ -1,5 +1,5 @@
 export default class APIError extends Error {
-  constructor (response, body) {
+  constructor(response, body) {
     super()
 
     this.name = 'APIError'

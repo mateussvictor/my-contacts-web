@@ -5,13 +5,13 @@ import arrow from '../../assets/icons/arrow.svg'
 
 import * as S from './styles.js'
 
-export default function PageHeader ({ title }) {
+export default function PageHeader({ title }) {
   return (
     <S.Container>
-        <Link to="/">
-          <img src={arrow} alt="Back" />
-          <span>Back</span>
-        </Link>
+      <Link to="/">
+        <img src={arrow} alt="Back" />
+        <span>Back</span>
+      </Link>
       <h1>{title}</h1>
     </S.Container>
   )

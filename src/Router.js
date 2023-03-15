@@ -4,7 +4,7 @@ import Home from './pages/Home'
 import NewContact from './pages/NewContact'
 import EditContact from './pages/EditContact'
 
-export default function Router () {
+export default function Router() {
   return (
     <Routes>
       <Route path="/" element={<Home />} />
