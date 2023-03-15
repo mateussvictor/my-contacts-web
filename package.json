@@ -15,7 +15,7 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "lint": "eslint 'src/*.js' --fix",
+    "lint": "eslint src --fix",
     "prepare": "husky install"
   },
   "eslintConfig": {
@@ -39,7 +39,12 @@
   "devDependencies": {
     "@commitlint/cli": "^17.4.4",
     "@commitlint/config-conventional": "^17.4.4",
+    "eslint": "^8.36.0",
+    "eslint-config-prettier": "^8.7.0",
+    "eslint-plugin-prettier": "^4.2.1",
+    "eslint-plugin-react": "^7.32.2",
     "husky": "^8.0.3",
-    "lint-staged": "^13.2.0"
+    "lint-staged": "^13.2.0",
+    "prettier": "^2.8.4"
   }
 }
